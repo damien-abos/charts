@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vmware-exporter
+data:
+  # file-like keys
+  {{- with .Values.config }}
+  config.yaml: |
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
